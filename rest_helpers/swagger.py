@@ -108,7 +108,6 @@ def get_swagger_definitions():
 def get_swagger_paths():
     return_value = {}
     for route in routes._swagger_routes:
-        #if route.options['methods'][0] == 'PATCH':
         existing_doc = _get_swagger_part(route.view_function, SWAGGER_DOCUMENTATION_KEY)
         key = "/"+route.rule.replace("<","{").replace(">","}").strip(" /")
         if key not in return_value:
