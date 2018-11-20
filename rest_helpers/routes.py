@@ -129,6 +129,11 @@ class put_resource_route(get_resource_route):
         super(put_resource_route, self).__init__(framework_adapter, resource_class, doc, options=options, versionner=versionner, exception_handler=exception_handler)
         self.options["methods"] = ["PUT"]
 
+class patch_resource_route(get_resource_route):
+    def __init__(self, framework_adapter, resource_class, doc=True, options=None, versionner=None, exception_handler=None):
+        super(patch_resource_route, self).__init__(framework_adapter, resource_class, doc, options=options, versionner=versionner, exception_handler=exception_handler)
+        self.options["methods"] = ["PATCH"]
+
 class operation_resource_route(get_resource_route):
     def __init__(self, framework_adapter, resource_class, operation_name, doc=True, options=None, versionner=None, exception_handler=None):
         super(operation_resource_route, self).__init__(framework_adapter, resource_class, doc, options, versionner, exception_handler)
