@@ -176,8 +176,10 @@ def add_get_all_resource_route(func, *args, **kwargs):
 
 def add_put_resource_route(func, *args, **kwargs):
     put_resource_route(*args, **kwargs)(func)
-
-
+    
+def add_patch_resource_route(func, *args, **kwargs):
+    patch_resource_route(*args, **kwargs)(func)
+    
 def add_operation_route(func, *args, **kwargs):
     operation_resource_route(*args, **kwargs)(func)
 
