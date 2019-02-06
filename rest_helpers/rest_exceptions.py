@@ -1,6 +1,6 @@
 class BaseExceptionHandle(Exception):
     def __init__(self, *args):
-        super(BaseExceptionHandle).__init__(*args)
+        super(BaseExceptionHandle, self).__init__(*args)
 
 class NotFoundException(BaseExceptionHandle):
     """
