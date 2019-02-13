@@ -152,7 +152,7 @@ class ErrorResponse(Response):
 
 
 class Error(object):
-    def __init__(self, error_id, status, title, detail, links=None, about=None, code=None, source=None, pointer=None, parameter=None, meta=None):
+    def __init__(self, error_id, status, title, detail, retry, links=None, about=None, code=None, source=None, pointer=None, parameter=None, meta=None):
         """
         error_id: a unique identifier for this particular occurrence of the problem.
         status: the HTTP status code applicable to this problem, expressed as a string value.
@@ -170,12 +170,12 @@ class Error(object):
         meta: a meta object containing non-standard meta-information about the error.
         """
         assert status >= 400
-
         self.id = error_id
         self.status = status
         self.title = title
         self.detail = detail
-
+        self.retry = retry
+        
         self.links = links
         self.about = about
         self.code = code

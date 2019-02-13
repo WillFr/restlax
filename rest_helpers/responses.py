@@ -41,14 +41,15 @@ def internal_server_error(framework_adapter, exception, stack_trace=""):
     )
     return error(framework_adapter, 500, "Internal server error", details)
 
-def error(framework_adapter, status_code, title, detail):
+def error(framework_adapter, status_code, title, detail, retry=False):
     """Creates an error response with the given status code, error title and detail."""
     assert status_code >= 400
     error_obj = Error(
         error_id = str(time()),
         status = status_code,
         title = title,
-        detail = detail
+        detail = detail,
+        retry = retry
     )
 
     return _response_from_error(framework_adapter, error_obj)
